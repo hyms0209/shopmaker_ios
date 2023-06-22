@@ -1,1 +1,0 @@
-# shopmaker_ios
