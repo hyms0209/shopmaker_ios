@@ -8,9 +8,11 @@
 import Foundation
 
 
-enum DirectionMap {
+enum DirectionMap: String {
     case kakao
     case naver
+    case apple
+    case googlemaps
     
     func getMoveScheme(
         startLocation: LocationInfo,
@@ -28,13 +30,17 @@ enum DirectionMap {
         switch self {
         case .kakao: return "kakaomap"
         case .naver: return "nmap"
+        case .apple: return "http"
+        case .googlemaps : return "comgooglemaps"
         }
     }
     
     private func getDomain() -> String {
         switch self {
-        case .kakao: return "/route"
-        case .naver: return "/route/car"
+        case .kakao: return "route"
+        case .naver: return "route/car"
+        case .apple: return "maps.apple.com/"
+        case .googlemaps: return ""
         }
     }
     
@@ -45,8 +51,21 @@ enum DirectionMap {
                 startLocation: startLocation,
                 endLocation: endLocation
             )
+            
         case .naver:
             return getNaverMapParameter(
+                startLocation: startLocation,
+                endLocation: endLocation
+            )
+            
+        case .apple:
+            return getAppleParameter(
+                startLocation: startLocation,
+                endLocation: endLocation
+            )
+            
+        case .googlemaps:
+            return getGoogleMapsParameter(
                 startLocation: startLocation,
                 endLocation: endLocation
             )
@@ -72,6 +91,26 @@ enum DirectionMap {
             .appending("&dlat=\(endLocation.latitude)")
             .appending("&dlng=\(endLocation.longitude)")
             .appending("&appname=com.ios.lotteautolease")
+    }
+    
+    private func getAppleParameter(
+        startLocation: LocationInfo,
+        endLocation: LocationInfo
+    ) -> String {
+        return "?saddr=\(startLocation.latitude),\(startLocation.longitude)"
+            .appending("&daddr=")
+            .appending("\(endLocation.latitude),\(endLocation.longitude)")
+            .appending("&dirflg=d")
+    }
+    
+    private func getGoogleMapsParameter(
+        startLocation: LocationInfo,
+        endLocation: LocationInfo
+    ) -> String {
+        return "?saddr=\(startLocation.latitude),\(startLocation.longitude)"
+            .appending("&daddr=")
+            .appending("\(endLocation.latitude),\(endLocation.longitude)")
+            .appending("&directionsmode=driving")
     }
 }
 

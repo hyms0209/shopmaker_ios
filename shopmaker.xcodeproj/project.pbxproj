@@ -824,7 +824,7 @@
 				INFOPLIST_FILE = shopmaker/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "샾메이커";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "간편인증 로그인 사용 시 사용됩니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "근처 가맹점 목록 조회를 기능에 필요";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "주차장 및 충전소 정보의 길찾기를 위해서 사용됩니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = SplashVC.storyboard;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
@@ -864,7 +864,7 @@
 				INFOPLIST_FILE = shopmaker/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "샾메이커";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "간편인증 로그인 사용 시 사용됩니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "근처 가맹점 목록 조회를 기능에 필요";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "주차장 및 충전소 정보의 길찾기를 위해서 사용됩니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = SplashVC.storyboard;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;

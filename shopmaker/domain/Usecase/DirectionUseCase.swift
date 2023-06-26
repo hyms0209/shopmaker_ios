@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import CoreLocation
 
 class DirectionUseCase {
     var locationRepository: LocationRepository
@@ -16,7 +17,7 @@ class DirectionUseCase {
     }
     
     func direction(direction: DirectionMap, moveLocation:LocationInfo)-> Observable<DirectionEntity> {
-        self.locationRepository.getCurrentLocation()
+        return self.locationRepository.getCurrentLocation()
             .asObservable()
             .map{
                 DirectionEntity(start: $0, end: moveLocation, direction: direction)

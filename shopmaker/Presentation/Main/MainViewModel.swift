@@ -17,7 +17,7 @@ protocol MainViewModelType {
 protocol MainViewModelInput{
     func downloadFile(url:URL)
     func bioAuth()
-    func direction()
+    func direction(direction: DirectionMap, location: LocationInfo) 
 }
 
 protocol MainViewModelOutput{
@@ -50,6 +50,7 @@ class MainViewModel : MainViewModelType  {
 }
 
 extension MainViewModel: MainViewModelInput {
+    
     var input: MainViewModelInput{ self }
     
     /**
@@ -85,13 +86,13 @@ extension MainViewModel: MainViewModelInput {
     /**
      * 길찾기
      */
-    func direction() {
+    func direction(direction: DirectionMap, location: LocationInfo) {
         self.directionUsecase.direction(
-            direction: .kakao,
+            direction: .googlemaps,
             moveLocation:
                 LocationInfo(
-                    latitude: 37.12313,
-                    longitude: 126.3920123
+                    latitude: 37.5043133,
+                    longitude: 127.0632608
                 )
         )
         .asObservable()

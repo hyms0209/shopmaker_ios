@@ -55,7 +55,7 @@ extension MainVC : WKUIDelegate, WKNavigationDelegate {
             // 로그인 정보 요청
         case .fileDownload: fileDownload(url: url)
         case .bioauth: bioAuth()
-        case .direction: direction()
+        case .direction: direction(items)
         default: break
         }
     }
@@ -71,8 +71,14 @@ extension MainVC : WebAppInterface {
         viewModel?.input.downloadFile(url: url)
     }
     
-    func direction() {
-        viewModel?.input.direction()
+    func direction(_ items: Dictionary<String, String>) {
+        let directionString = items["direction"] ?? ""
+        let latitute = Double(items["latitute"] ?? "0.0") ?? 0.0
+        let longitude = Double(items["longitude"] ?? "0.0") ?? 0.0
+        
+        guard let direction = DirectionMap(rawValue: directionString) else { return }
+        // 테스트 코드
+        viewModel?.input.direction(direction: direction, location: LocationInfo(latitude: latitute, longitude: longitude))
     }
 }
 
@@ -82,7 +88,7 @@ protocol WebAppInterface {
     /// 생체인증
     func bioAuth()
     /// 길찾기
-    func direction()
+    func direction(_ items: Dictionary<String, String>)
 }
 
 

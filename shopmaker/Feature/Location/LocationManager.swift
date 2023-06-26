@@ -22,8 +22,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func requestLocationPermission() -> Observable<CLAuthorizationStatus> {
-        return authorizationStatusRelay.asObservable()
-            .startWith(getInitialAuthorizationStatus())
+        let observer = authorizationStatusRelay.asObservable()
+        let authorizationStatus = self.getInitialAuthorizationStatus()
+        if authorizationStatus == .notDetermined {
+            self.locationManager?.requestWhenInUseAuthorization()
+            return observer.asObservable()
+        } else {
+            return observer.asObservable().startWith(authorizationStatus)
+        }
     }
     
     private func getInitialAuthorizationStatus() -> CLAuthorizationStatus {

@@ -16,7 +16,11 @@
 		</dict>
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
-	<array/>
+	<array>
+		<string>nmap</string>
+		<string>kakaomap</string>
+		<string>comgooglemaps</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -27,11 +31,6 @@
 		<string>NotoSansKR-Bold.otf</string>
 		<string>NotoSansKR-Medium.otf</string>
 		<string>NotoSansKR-Regular.otf</string>
-	</array>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>fetch</string>
-		<string>remote-notification</string>
 	</array>
 </dict>
 </plist>

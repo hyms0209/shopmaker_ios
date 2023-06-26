@@ -91,6 +91,9 @@ class MainVC: UIViewController, UIImagePickerControllerDelegate & UINavigationCo
             .subscribe(onNext: {[weak self] url in
                 guard let self = self else { return }
                 print("=====> Current UrlScheme : \(url)")
+                if let url = URL(string: url), UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
             })
             .disposed(by: disposeBag)
     }
