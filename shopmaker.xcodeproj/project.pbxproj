@@ -300,15 +300,11 @@
 		B6A7406228C36BA000151593 /* provider */ = {
 			isa = PBXGroup;
 			children = (
-				B6A7406A28C3789B00151593 /* ObservableType+Codable.swift */,
-				B6A7406928C3789A00151593 /* Response+Codable.swift */,
+				D2CA2EF12A4942E400F435A6 /* Ext */,
+				D2CA2EF02A4942D400F435A6 /* DataSource */,
+				D2CA2EEF2A4942C400F435A6 /* API */,
 				B6A7406328C36BB500151593 /* MainFlowProvider.swift */,
-				B6A7406828C3789A00151593 /* Single+Codable.swift */,
 				C2CE20F128EABD7900051978 /* MomentProvider.swift */,
-				D271E1782A3AFDEB00032D5C /* FileDownloadAPI.swift */,
-				D271E17A2A3AFE0C00032D5C /* FileDownloadDataSource.swift */,
-				D271E1812A417C5500032D5C /* RemoteDataSource.swift */,
-				D271E1852A4186C900032D5C /* RemoteAPI.swift */,
 				D271E18B2A4197DD00032D5C /* LoggedPlugin.swift */,
 			);
 			path = provider;
@@ -465,6 +461,34 @@
 				B6A73FF628C1111500151593 /* Main */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D2CA2EEF2A4942C400F435A6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D271E1782A3AFDEB00032D5C /* FileDownloadAPI.swift */,
+				D271E1852A4186C900032D5C /* RemoteAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D2CA2EF02A4942D400F435A6 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				D271E17A2A3AFE0C00032D5C /* FileDownloadDataSource.swift */,
+				D271E1812A417C5500032D5C /* RemoteDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		D2CA2EF12A4942E400F435A6 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				B6A7406A28C3789B00151593 /* ObservableType+Codable.swift */,
+				B6A7406928C3789A00151593 /* Response+Codable.swift */,
+				B6A7406828C3789A00151593 /* Single+Codable.swift */,
+			);
+			path = Ext;
 			sourceTree = "<group>";
 		};
 		D2CC58722A42C7DD00F3A3C3 /* Feature */ = {
